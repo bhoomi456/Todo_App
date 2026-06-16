@@ -5,7 +5,7 @@ class TodoListsController < ApplicationController
     @todo_lists = TodoList.all
   end
 
-  def show 
+  def show
   end
 
   def new
@@ -16,7 +16,7 @@ class TodoListsController < ApplicationController
     @todo_list = TodoList.new(todo_lists_params)
 
     if @todo_list.save
-      redirect_to todo_lists_path, notice "Todo list created successfully"
+      redirect_to todo_lists_path, notice: "Todo list created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,6 @@ class TodoListsController < ApplicationController
   end
 
   def todo_lists_params
-    params.require(:todo_list).permit(:name,:description)
+    params.require(:todo_list).permit(:name, :description)
   end
-
 end
