@@ -1,5 +1,5 @@
 <h1>New To-Do list</h1>
-<%=render "form", todo_list = @todo_list %>
+<%=render "form", todo_lists: @todo_lists %>
 
 <%= link_to "New Todo List", new_todo_list_path%>
 <table>
@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @todo_list.each do |tl|%>
+    <% @todo_lists.each do |tl|%>
       <tr>
         <td><%= tl.name %></td>
         <td><%= tl.description %></td>
