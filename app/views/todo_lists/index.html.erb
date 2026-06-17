@@ -16,9 +16,9 @@
         <td>
           <%= link_to "Show", todo_list_path(tl)%>
           <%= link_to "Edit", edit_todo_list_path(tl)%>
-
+          <%= link_to "Delete",todo_list_path(tl),data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %>
         </td>
       </tr>
-      <% end %>
+    <% end %>
   </tbody>
 </table>
