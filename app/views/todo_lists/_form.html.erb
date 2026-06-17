@@ -1,12 +1,12 @@
 <h1>To-Do lists</h1>
 
-<%=form_with model: todo_list do |form|%>
-<%if todo_list.errors.any?%>
-  <ul>
-    <% todo_list.errors.full_messages.each do |message|%>
-      <li><%=message%></li>
-    <% end %>
-  </ul>
+<%= form_with model: todo_list do |form|%>
+  <% if todo_list.errors.any? %>
+    <ul>
+      <% todo_list.errors.full_messages.each do |message|%>
+        <li><%=message%></li>
+      <% end %>
+    </ul>
   <% end %>
 
   <div>
