@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: %i[show]
+  before_action :set_todo_list, only: %i[show edit update destroy]
 
   def index
     @todo_lists = TodoList.all
@@ -24,6 +24,20 @@ class TodoListsController < ApplicationController
 
 
   def edit
+  end
+
+  def update
+    if @todo_list.update(todo_lists_params)
+      redirect_to todo_lists_path, notice: "Todo list updated successfully"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @todo_list.destroy
+
+    redirect_to todo_lists_path,notice: "Todo list deleted successfully"
   end
 
 
